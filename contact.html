@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
+  <title>Contact | Hello World</title>
   <style>
     :root {
       color-scheme: dark;
@@ -14,7 +14,7 @@
       --mint: #66e2b3;
       --sky: #7bb7ff;
       --plum: #a17cff;
-      --bg: #111317;
+      --bg: #111316;
     }
 
     * {
@@ -28,9 +28,9 @@
       place-items: center;
       padding: 96px 16px 32px;
       background:
-        radial-gradient(circle at 18% 22%, rgba(255, 107, 53, 0.24), transparent 26vw),
-        radial-gradient(circle at 86% 18%, rgba(102, 226, 179, 0.20), transparent 24vw),
-        radial-gradient(circle at 54% 92%, rgba(123, 183, 255, 0.22), transparent 30vw),
+        radial-gradient(circle at 16% 20%, rgba(123, 183, 255, 0.22), transparent 26vw),
+        radial-gradient(circle at 84% 24%, rgba(255, 107, 53, 0.22), transparent 24vw),
+        radial-gradient(circle at 52% 92%, rgba(102, 226, 179, 0.18), transparent 30vw),
         linear-gradient(145deg, #111316 0%, #1a1d22 45%, #0c0e10 100%);
       color: var(--ink);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -105,66 +105,78 @@
     }
 
     h1 {
-      max-width: 8ch;
+      max-width: 9ch;
       margin: 0;
-      font-size: clamp(4rem, 14vw, 9.75rem);
-      line-height: 0.82;
+      font-size: clamp(3.7rem, 12vw, 8.2rem);
+      line-height: 0.86;
       letter-spacing: 0;
     }
 
     h1 span {
       display: block;
       color: transparent;
-      background: linear-gradient(90deg, var(--ember), #ffd166 35%, var(--mint) 68%, var(--sky));
+      background: linear-gradient(90deg, var(--sky), var(--mint) 46%, #ffd166 82%);
       background-clip: text;
       -webkit-background-clip: text;
     }
 
     p {
-      max-width: 560px;
+      max-width: 620px;
       margin: 28px 0 0;
       color: var(--muted);
       font-size: clamp(1rem, 2vw, 1.2rem);
       line-height: 1.7;
     }
 
-    .spark {
-      position: absolute;
-      width: 12px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: var(--mint);
-      box-shadow: 0 0 36px var(--mint);
-      animation: drift 7s ease-in-out infinite;
+    form {
+      display: grid;
+      gap: 16px;
+      max-width: 640px;
+      margin-top: 34px;
     }
 
-    .spark.one {
-      top: 22%;
-      right: 12%;
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--ink);
+      font-weight: 750;
     }
 
-    .spark.two {
-      right: 24%;
-      bottom: 18%;
-      width: 8px;
-      background: var(--plum);
-      box-shadow: 0 0 32px var(--plum);
-      animation-delay: -2.5s;
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 15px 16px;
+      background: rgba(248, 244, 234, 0.08);
+      color: var(--ink);
+      font: inherit;
+      outline: none;
     }
 
-    .spark.three {
-      left: 10%;
-      bottom: 24%;
-      width: 10px;
-      background: var(--ember);
-      box-shadow: 0 0 34px var(--ember);
-      animation-delay: -4s;
+    textarea {
+      min-height: 132px;
+      resize: vertical;
     }
 
-    @keyframes drift {
-      50% {
-        transform: translate3d(0, -22px, 0) scale(1.35);
-      }
+    input:focus,
+    textarea:focus {
+      border-color: var(--mint);
+      box-shadow: 0 0 0 4px rgba(102, 226, 179, 0.12);
+    }
+
+    button {
+      justify-self: start;
+      min-height: 48px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 24px;
+      background: linear-gradient(90deg, var(--ember), #ffd166 45%, var(--mint));
+      color: #111316;
+      font: inherit;
+      font-weight: 850;
+      cursor: pointer;
+      box-shadow: 0 18px 44px rgba(255, 107, 53, 0.20);
     }
 
     @media (max-width: 560px) {
@@ -188,26 +200,38 @@
         padding: 32px 24px;
       }
 
-      .spark {
-        display: none;
+      button {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
   <nav aria-label="Main navigation">
-    <a href="hello-world.html" aria-current="page">Home</a>
+    <a href="hello-world.html">Home</a>
     <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html" aria-current="page">Contact</a>
   </nav>
 
   <main>
-    <div class="spark one"></div>
-    <div class="spark two"></div>
-    <div class="spark three"></div>
-    <p class="kicker">Tiny page, big entrance</p>
-    <h1>Hello <span>World</span></h1>
-    <p>A fancy little welcome screen with luminous color, glassy depth, and just enough motion to make the classic greeting feel alive.</p>
+    <p class="kicker">Say hello back</p>
+    <h1>Contact <span>Us</span></h1>
+    <p>Drop a note, send a thought, or simply keep the greeting going. This form is styled and ready for a future backend when you want one.</p>
+    <form>
+      <label>
+        Name
+        <input type="text" name="name" placeholder="Ada Lovelace">
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" placeholder="ada@example.com">
+      </label>
+      <label>
+        Message
+        <textarea name="message" placeholder="Hello from the other page..."></textarea>
+      </label>
+      <button type="button">Send Message</button>
+    </form>
   </main>
 </body>
 </html>
